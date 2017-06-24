@@ -7,7 +7,7 @@ import matplotlib.pyplot as plt
 train_df = pd.read_csv("kaggle/titanic-inference/train.csv")
 test_df = pd.read_csv("kaggle/titanic-inference/test.csv")
 
-#Defining if being male is and important variable for survival
+#Defining if being male is an important variable for survival
 isMale = train_df["Sex"] == 'male'
 males = train_df[isMale]
 boolLifeMales = males['Survived']==1
@@ -30,7 +30,7 @@ print(count_deadFemales)
 labels = ['Life Males', 'Life Females', 'Dead Males', 'Dead Females']
 sizes = [count_lifeMales, count_lifeFemales, count_deadMales, count_deadFemales]
 explode = [0.1,0.1,0.1,0.1]
-plt.title('Percentage of dead or alive males or females')
+plt.title('Percentage of dead or alive males and females')
 plt.pie(sizes, explode=explode, labels= labels, startangle=90, shadow=True, autopct='%1.1f%%')
 """
 #Bar Chart
@@ -41,4 +41,14 @@ plt.bar(ind, sizes, width = 0.8)
 
 plt.show()
 
+print('Being a male is an important factor as such must of males died')
 
+
+#Defining if being in a higher class is an important variable for survival
+
+class_3 = train_df[train_df['Pclass']==3]
+class_2 = train_df[train_df['Pclass']==2]
+class_1 = train_df[train_df['Pclass']==1]
+lifeClass_3 = class_3[class_3['Survived']==1]
+lifeClass_2 = class_2[class_2['Survived']==1]
+lifeClass_1 = class_1[class_1['Survived']==1]

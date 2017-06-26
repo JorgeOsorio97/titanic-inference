@@ -7,6 +7,10 @@ import matplotlib.pyplot as plt
 train_df = pd.read_csv("kaggle/titanic-inference/train.csv")
 test_df = pd.read_csv("kaggle/titanic-inference/test.csv")
 
+#Drop unecesarry data for the mechine learnig purpose
+
+train_df = train_df.drop(['Name', 'Ticket', 'Embarked'], axis=1)
+test_df = test_df.drop(['Name', 'Ticket', 'Embarked'], axis=1)
 #Defining if being male is an important variable for survival
 isMale = train_df["Sex"] == 'male'
 males = train_df[isMale]
